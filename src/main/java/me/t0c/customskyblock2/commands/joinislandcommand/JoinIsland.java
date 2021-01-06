@@ -11,6 +11,7 @@ import java.util.Map;
 
 public class JoinIsland extends Command implements Listener {
 
+    // map of requester to requested
     protected static final Map<Player, Player> joinIslandData = new HashMap<>();
 
     protected JoinIsland(Player player, String[] args) {
@@ -27,8 +28,10 @@ public class JoinIsland extends Command implements Listener {
                 switch (args[0].toLowerCase()) {
                     case "request":
                         request(target);
+                        break;
                     case "accept":
                         accept(target);
+                        break;
                     case "deny":
                         deny(target);
                 }
@@ -88,4 +91,15 @@ public class JoinIsland extends Command implements Listener {
             sendMessage(player, MessageType.INFO, "You do not have any island join requests");
         }
     }
+
+    public static boolean containsTarget(Player target) {
+        if(target == null) return false;
+        for(Player player : joinIslandData.values()) {
+            if(target.equals(player)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

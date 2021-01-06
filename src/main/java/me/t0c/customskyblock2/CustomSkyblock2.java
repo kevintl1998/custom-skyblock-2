@@ -1,6 +1,5 @@
 package me.t0c.customskyblock2;
 
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import me.t0c.customskyblock2.commands.bonusescommand.BonusesCommand;
 import me.t0c.customskyblock2.commands.csbcommand.CSBCommand;
 import me.t0c.customskyblock2.commands.joinislandcommand.JoinIslandCommand;

@@ -21,6 +21,8 @@ public class WormholeData {
     }
 
     public static boolean containsTarget(Player target) {
+        if(target == null) return false;
+
         for(WormholeData data : teleportRequestData.values()) {
             if(target.equals(data.target)) {
                 return true;
@@ -30,6 +32,8 @@ public class WormholeData {
     }
 
     public static boolean containsRunnable(WormholeRequestTimerRunnable runnable) {
+        if(runnable == null) return false;
+
         for(WormholeData data : teleportRequestData.values()) {
             if(runnable.equals(data.runnable)) {
                 return true;
