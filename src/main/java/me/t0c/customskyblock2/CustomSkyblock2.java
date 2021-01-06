@@ -78,6 +78,7 @@ public final class CustomSkyblock2 extends JavaPlugin implements Listener {
         //Generate event data:
         if(eventData == null) {
             generateEventDataDefault();
+            System.out.println("Test");
             getLogger().warning("Could not get eventData.yml");
             getLogger().warning("Generating new eventData.yml...");
         }
