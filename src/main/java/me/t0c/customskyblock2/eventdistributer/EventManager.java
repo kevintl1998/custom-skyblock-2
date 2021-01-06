@@ -38,27 +38,13 @@ public class EventManager extends Dong {
         int bonusEvents = data.getBonuses().getBonusEvents();
         if(!player.isDead()) {
             Event event = getRandomEvent();
-            if(event == null) {
-                nullEventAction(player);
-            } else {
-                notNullEventAction(event, player);
-            }
+            event.run(player);
             if(bonusEvents > 0) {
                 getRandomEvent().run(player);
                 data.getBonuses().addBonusEvents(-1);
             }
         }
         data.getStats().anotherEventSurvived();
-    }
-
-    private void nullEventAction(Player player) {
-        Bukkit.getLogger().warning("Event for " + player.getName() + " was null. Getting new event.");
-        runEvent(player);
-    }
-
-    private void notNullEventAction(Event event, Player player) {
-        Bukkit.getLogger().info("event: " + event.name() + " | player: " + player.getName());
-        event.run(player);
     }
 
     private Event getRandomEvent() {

@@ -65,8 +65,9 @@ public enum FunctionalItem implements BaseCustomType {
     public ItemStack getItem() { return item; }
 
     private static final List<String> funcItemNames = initFunctionalItemNames();
-    private static final List<FunctionalItem> itemList = Arrays.asList(FunctionalItem.values());
+    private static List<FunctionalItem> itemList = Arrays.asList(FunctionalItem.values());
     public static List<FunctionalItem> getItemList() { return itemList; }
+    public static void resetItemList() { itemList = Arrays.asList(FunctionalItem.values()); }
 
     public static List<String> getFuncItemNames() { return funcItemNames; }
 

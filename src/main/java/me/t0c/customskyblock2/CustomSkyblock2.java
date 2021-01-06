@@ -54,6 +54,9 @@ public final class CustomSkyblock2 extends JavaPlugin implements Listener {
     private static EventManager eventManager;
     private static BukkitTask eventTaskTimer;
 
+
+    //TODO:: find and fix the event that is creating a null pointer exception
+
     @Override
     public void onEnable() {
 
