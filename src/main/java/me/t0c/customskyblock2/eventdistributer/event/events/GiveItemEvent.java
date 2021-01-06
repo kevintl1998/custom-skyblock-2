@@ -24,4 +24,9 @@ public class GiveItemEvent extends Event {
 
         }
     }
+
+    @Override
+    public String name() {
+        return "GiveItemEvent";
+    }
 }

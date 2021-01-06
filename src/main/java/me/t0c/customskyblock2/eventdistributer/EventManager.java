@@ -24,22 +24,41 @@ public class EventManager extends Dong {
     public void registerEvent(Event e) {
         if(e.getWeight() <= 0) {
             throw new IllegalArgumentException("Event weight must be greater than 0.");
-        } else { events.add(e);}
+        } else { events.add(e); }
     }
 
     public void event() {
         for(Player p : Bukkit.getOnlinePlayers()) {
-            Data data = plugin.playerData().getData().get(p.getUniqueId().toString());
-            int bonusEvents = data.getBonuses().getBonusEvents();
-            if(p.getHealth() > 0) {
-                getRandomEvent().run(p);
-                if(bonusEvents > 0) {
-                    getRandomEvent().run(p);
-                    plugin.playerData().getData().get(p.getUniqueId().toString()).getBonuses().setBonusEvents(bonusEvents - 1);
-                }
-            }
-            data.getStats().anotherEventSurvived();
+            runEvent(p);
         }
+    }
+
+    private void runEvent(Player player) {
+        Data data = plugin.playerData().getData().get(player.getUniqueId().toString());
+        int bonusEvents = data.getBonuses().getBonusEvents();
+        if(!player.isDead()) {
+            Event event = getRandomEvent();
+            if(event == null) {
+                nullEventAction(player);
+            } else {
+                notNullEventAction(event, player);
+            }
+            if(bonusEvents > 0) {
+                getRandomEvent().run(player);
+                data.getBonuses().addBonusEvents(-1);
+            }
+        }
+        data.getStats().anotherEventSurvived();
+    }
+
+    private void nullEventAction(Player player) {
+        Bukkit.getLogger().warning("Event for " + player.getName() + " was null. Getting new event.");
+        runEvent(player);
+    }
+
+    private void notNullEventAction(Event event, Player player) {
+        Bukkit.getLogger().info("event: " + event.name() + " | player: " + player.getName());
+        event.run(player);
     }
 
     private Event getRandomEvent() {

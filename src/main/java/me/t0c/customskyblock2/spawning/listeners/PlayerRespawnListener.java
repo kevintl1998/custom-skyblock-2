@@ -22,13 +22,13 @@ public class PlayerRespawnListener extends Dong implements Listener {
         //TODO:: test if bed spawn is enabled and if bed spawn exists. If not, tp player to their bedrock
         if(!plugin.config().isEnableBedSpawn() || event.getPlayer().getBedSpawnLocation() == null) {
             Player player = event.getPlayer();
-            RespawnLocation r = CustomSkyblock2.instance().playerData().getData().get(player.getUniqueId().toString()).getRespawnLocation();
-
-            Location l = new Location(Bukkit.getWorld(plugin.config().getOverworld()), r.getX(), CustomSkyblock2.instance().config().getIslandGenHeight() + 1, r.getZ());
+            Location l = CustomSkyblock2.instance().playerData().getData().get(player.getUniqueId().toString()).getRespawnLocation().asLocation(plugin.overworld());
             tidyRespawnLocation(l);
             l.add(0.5f, 0, 0.5f);
             if(player.getBedSpawnLocation() == null) player.setBedSpawnLocation(l,true);
             new TeleportRunnable(player, l);
+        } else {
+            tidyRespawnLocation(CustomSkyblock2.instance().playerData().getData().get(event.getPlayer().getUniqueId().toString()).getRespawnLocation().asLocation(plugin.overworld()));
         }
     }
 

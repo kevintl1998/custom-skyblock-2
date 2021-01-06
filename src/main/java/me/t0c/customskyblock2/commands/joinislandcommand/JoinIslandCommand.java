@@ -11,8 +11,6 @@ import java.util.List;
 
 public class JoinIslandCommand extends CSBClass implements CommandExecutor, TabCompleter {
 
-
-
     public JoinIslandCommand() {
         PluginCommand command = plugin.getCommand("joinIsland");
         if(command != null) {

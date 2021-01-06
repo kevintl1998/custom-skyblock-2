@@ -56,7 +56,7 @@ public class WormholeCommand extends CSBClass implements CommandExecutor, TabCom
                         }
                     }
                 } else {
-                    sendMessage(player, MessageType.INFO, "That player is not online or does not exist.");
+                    sendMessage(player, MessageType.INFO, "That player is not online or does not exist");
                 }
             } else if(args.length == 1) { // /wh cancel || wrong syntax
                 if(args[0].toLowerCase().equals("cancel") && !WormholeData.hasTarget(player)) {
@@ -70,7 +70,7 @@ public class WormholeCommand extends CSBClass implements CommandExecutor, TabCom
                 sendMessage(player, MessageType.INFO, "Command syntax: /wh [accept|deny|request|cancel]");
             }
         } else {
-            sender.sendMessage("This command can only be executed by a player.");
+            sender.sendMessage("This command can only be executed by a player");
         }
 
         return true;
@@ -86,13 +86,14 @@ public class WormholeCommand extends CSBClass implements CommandExecutor, TabCom
 
     private void denyTeleportRequest(Player player, Player target) {
         WormholeData.teleportRequestData.remove(player);
-        sendMessage(player, MessageType.INFO, target.getName() + " denied your teleport request.");
+        sendMessage(player, MessageType.INFO, target.getName() + " denied your teleport request");
         WormholeData.teleportRequestData.get(player).runnable.cancel();
         player.getWorld().dropItem(player.getLocation(), FunctionalItem.WORMHOLE_POTION.getItem());
     }
 
     private void requestTeleport(Player player, Player target) {
         WormholeRequestTimerRunnable runnable = new WormholeRequestTimerRunnable(player, target);
+        sendMessage(player, MessageType.INFO, "Sent a teleport request to " + target.getName());
         sendMessage(target, MessageType.INFO, player.getName() + " has requested to teleport to you. Do '/wh [accept|deny] <player>' to accept or deny the request.");
 
 

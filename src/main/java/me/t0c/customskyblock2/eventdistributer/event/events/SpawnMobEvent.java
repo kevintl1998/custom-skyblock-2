@@ -17,10 +17,6 @@ public class SpawnMobEvent extends Event {
     private static final int MIN_SPAWN_DISTANCE = 2;
     private static final int MAX_ATTEMPTS = 4;
 
-    //protected int initWeight() {
-        //return 5;
-    //}
-
     @Override
     public int getWeight() {
         return plugin.eventData().getSpawnMobEventWeight();
@@ -33,10 +29,16 @@ public class SpawnMobEvent extends Event {
         EntityType entityType = Entities.getRandomLivingEntity();
         if(!plugin.eventData().isEnableExplosiveMobsInSpawnMobEvent()) {
             while (Entities.explosiveMobs.contains(entityType)) {
+                entityType = Entities.getRandomLivingEntity();
             }
         }
         Entity entity = player.getWorld().spawnEntity(determineSpawnLocation(player), entityType);
         ((LivingEntity)entity).addPotionEffect(slowfall);
+    }
+
+    @Override
+    public String name() {
+        return "SpawnMobEvent";
     }
 
     private Location determineSpawnLocation(Player p) {

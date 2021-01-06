@@ -19,6 +19,7 @@ public class Blocks {
     public static final List<Material> bedBlocks = initBeds();
     public static final List<Material> liquids = initLiquids();
     public static final List<Material> illegalSpawnBlocks = initIllegalSpawnBlocks();
+    public static final List<Material> guiBlocks = initGuiBlocks();
 
     /* random getters */
     public static Material getRandomBlock() {
@@ -288,5 +289,41 @@ public class Blocks {
         return ret;
 
 
+    }
+    private static List<Material> initGuiBlocks() {
+        return Arrays.asList(Material.CHEST,
+                Material.TRAPPED_CHEST,
+                Material.CRAFTING_TABLE,
+                Material.ENDER_CHEST,
+                Material.BREWING_STAND,
+                Material.FURNACE,
+                Material.BLAST_FURNACE,
+                Material.SMOKER,
+                Material.ENCHANTING_TABLE,
+                Material.ANVIL,
+                Material.CHIPPED_ANVIL,
+                Material.DAMAGED_ANVIL,
+                Material.SHULKER_BOX,
+                Material.WHITE_SHULKER_BOX,
+                Material.ORANGE_SHULKER_BOX,
+                Material.MAGENTA_SHULKER_BOX,
+                Material.LIGHT_BLUE_SHULKER_BOX,
+                Material.YELLOW_SHULKER_BOX,
+                Material.LIME_SHULKER_BOX,
+                Material.PINK_SHULKER_BOX,
+                Material.GRAY_SHULKER_BOX,
+                Material.LIGHT_GRAY_SHULKER_BOX,
+                Material.CYAN_SHULKER_BOX,
+                Material.PURPLE_SHULKER_BOX,
+                Material.BLUE_SHULKER_BOX,
+                Material.GREEN_SHULKER_BOX,
+                Material.RED_SHULKER_BOX,
+                Material.BLACK_SHULKER_BOX,
+                Material.LOOM,
+                Material.BARREL,
+                Material.CARTOGRAPHY_TABLE,
+                Material.GRINDSTONE,
+                Material.SMITHING_TABLE,
+                Material.STONECUTTER);
     }
 }

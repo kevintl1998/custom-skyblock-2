@@ -4,8 +4,10 @@ import me.t0c.customskyblock2.Dong;
 import me.t0c.customskyblock2.custom.functionalItem.CSBConsumableFunctionalItem;
 import me.t0c.customskyblock2.custom.functionalItem.CSBUsableFunctionalItem;
 import me.t0c.customskyblock2.custom.functionalItem.FunctionalItem;
+import me.t0c.customskyblock2.data.Blocks;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
@@ -37,17 +39,28 @@ public class CustomUtilityManager extends Dong implements Listener {
     public void onBlockInteract(PlayerInteractEvent event) {
         if (event.getItem() != null && !event.getItem().getType().equals(Material.AIR)) {
             if (event.getHand().equals(EquipmentSlot.HAND)) {
-                if (event.getAction().equals(Action.RIGHT_CLICK_AIR) || (event.getAction().equals(Action.RIGHT_CLICK_BLOCK) && (!event.getClickedBlock().getType().isInteractable() || event.getPlayer().isSneaking()))) {
-                    ItemStack i = event.getPlayer().getEquipment().getItemInMainHand();
-                    if (isUsableItem(i)) {
-                        if (executeBlockInteractFunction(event)) {
-                            i.setAmount(i.getAmount() - 1);
+                if(isUsableItem(event.getPlayer().getEquipment().getItemInMainHand())) {
+                    Action action = event.getAction();
+                    if(!action.equals(Action.LEFT_CLICK_BLOCK) && !action.equals(Action.LEFT_CLICK_AIR)) {
+                        if (action.equals(Action.RIGHT_CLICK_AIR) || event.getClickedBlock() == null) {
+                            executeCustomInteract(event);
+                        } else if (action.equals(Action.RIGHT_CLICK_BLOCK)) {
+                            Material clickedMaterial = event.getClickedBlock().getType();
+                            if (!clickedMaterial.isInteractable() || event.getPlayer().isSneaking() || !Blocks.guiBlocks.contains(clickedMaterial)) {
+                                executeCustomInteract(event);
+                            }
                         }
-                        event.setCancelled(true);
                     }
                 }
             }
         }
+    }
+    private void executeCustomInteract(PlayerInteractEvent event) {
+        if (executeBlockInteractFunction(event)) {
+            ItemStack i = event.getPlayer().getEquipment().getItemInMainHand();
+            i.setAmount(i.getAmount() - 1);
+        }
+        event.setCancelled(true);
     }
 
     private boolean executeBlockInteractFunction(PlayerInteractEvent event) {

@@ -33,4 +33,9 @@ public class GiveCustomItemEvent extends Event {
         }
         plugin.getLogger().warning("A custom item could not be chosen for " + player.getName());
     }
+
+    @Override
+    public String name() {
+        return "GiveCustomItemEvent";
+    }
 }

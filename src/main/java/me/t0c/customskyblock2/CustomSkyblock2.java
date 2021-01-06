@@ -54,17 +54,6 @@ public final class CustomSkyblock2 extends JavaPlugin implements Listener {
     private static EventManager eventManager;
     private static BukkitTask eventTaskTimer;
 
-
-    //TODO:
-    /*
-     *
-     * command to join another person's island  <== test <== create tab completer for this
-     *
-     * custom wandering trader => dragon egg for pillow
-     * custom wandering trader => nether star for portal frame
-     *
-    */
-
     @Override
     public void onEnable() {
 

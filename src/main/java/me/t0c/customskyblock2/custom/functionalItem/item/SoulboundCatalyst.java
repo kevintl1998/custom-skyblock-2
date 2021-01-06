@@ -23,7 +23,7 @@ public class SoulboundCatalyst extends CSBClass implements CSBUsableFunctionalIt
 
     @Override
     public String getName() {
-        return "Soulbound";
+        return "Soulbound Catalyst";
     }
 
     @Override

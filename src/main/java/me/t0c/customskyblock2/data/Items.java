@@ -128,7 +128,8 @@ public class Items extends Dong {
                 Material.NETHERITE_PICKAXE,
                 Material.NETHERITE_HOE,
                 Material.NETHERITE_SHOVEL,
-                Material.ELYTRA);
+                Material.ELYTRA,
+                Material.NETHER_STAR);
     }
     private static List<Material> initMobDrops() {
         return Arrays.asList(Material.BLAZE_ROD,

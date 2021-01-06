@@ -25,7 +25,7 @@ public class BlockRemover extends CSBClass implements CSBUsableFunctionalItem {
                     event.getClickedBlock().setType(Material.AIR);
                     return true;
                 } else {
-                    event.getPlayer().sendMessage("Could not remove this block.");
+                    sendMessage(event.getPlayer(), MessageType.INFO, "Could not remove this block.");
                 }
             }
         }

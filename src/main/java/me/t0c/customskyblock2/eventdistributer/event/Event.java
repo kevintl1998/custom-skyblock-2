@@ -7,4 +7,6 @@ import org.bukkit.entity.Player;
 public abstract class Event extends CSBClass {
     public abstract int getWeight();
     public abstract void run(Player player);
+    public abstract String name();
+
 }

@@ -11,6 +11,8 @@ import java.util.Map;
 
 public class JoinIsland extends Command implements Listener {
 
+    //TODO:: remove player if they leave the game
+
     // map of requester to requested
     protected static final Map<Player, Player> joinIslandData = new HashMap<>();
 
@@ -37,7 +39,7 @@ public class JoinIsland extends Command implements Listener {
                             deny(target);
                     }
                 } else {
-                    sendMessage(player, MessageType.INFO, "Cannot send a teleport request to yourself.");
+                    sendMessage(player, MessageType.INFO, "Cannot send a request to yourself.");
                 }
             } else {
                 sendMessage(player, MessageType.INFO, args[1] + " is not online or does not exist");
@@ -63,7 +65,7 @@ public class JoinIsland extends Command implements Listener {
 
             joinIslandData.remove(target);
         } else {
-            sendMessage(player, MessageType.INFO, "You don't have a request from that person");
+            sendMessage(player, MessageType.INFO, "You don't have a request from that person.");
         }
     }
 
@@ -73,14 +75,16 @@ public class JoinIsland extends Command implements Listener {
             sendMessage(target, MessageType.INFO, player.getName() + " denied your request.");
             joinIslandData.remove(target);
         } else {
-            sendMessage(player, MessageType.INFO, "You don't have a request from that person");
+            sendMessage(player, MessageType.INFO, "You don't have a request from that person.");
 
         }
     }
 
     private void request(Player target) {
         if(!joinIslandData.containsKey(player)) {
-            sendMessage(player, MessageType.INFO, "requested to join " + player.getName() + "'s island.");
+            sendMessage(player, MessageType.INFO, "requested to join " + target.getName() + "'s island.");
+            sendMessage(target, MessageType.INFO, player.getName() + " has requested to join your island.");
+
             joinIslandData.put(player, target);
         } else {
             sendMessage(player, MessageType.INFO, "You can only request to join one person's island at a time.");
@@ -89,10 +93,10 @@ public class JoinIsland extends Command implements Listener {
 
     private void cancel() {
         if(joinIslandData.containsKey(player)) {
-            sendMessage(player, MessageType.INFO, "Cancelled the request to " + joinIslandData.get(player).getName());
+            sendMessage(player, MessageType.INFO, "Cancelled the request to " + joinIslandData.get(player).getName()+ ".");
             joinIslandData.remove(player);
         } else {
-            sendMessage(player, MessageType.INFO, "You do not have any island join requests");
+            sendMessage(player, MessageType.INFO, "You do not have any island join requests.");
         }
     }
 

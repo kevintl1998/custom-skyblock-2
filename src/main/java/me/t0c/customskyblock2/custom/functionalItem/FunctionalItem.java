@@ -25,6 +25,8 @@ public enum FunctionalItem implements BaseCustomType {
 
     SOULBOUND_CATALYST(new SoulboundCatalyst(), ItemType.USABLE),
 
+    CUSTOM_TRADER_SPAWNER(new CustomTraderSpawner(), ItemType.USABLE),
+
     //PLAYER_REMOVER(new PlayerRemover(), ItemType.USABLE),
 
     ITEM_BONUS(new ItemBonus(), ItemType.CONSUMABLE),
