@@ -25,15 +25,19 @@ public class JoinIsland extends Command implements Listener {
         if(args.length == 2) {
             Player target;
             if((target = Bukkit.getPlayer(args[1])) != null) {
-                switch (args[0].toLowerCase()) {
-                    case "request":
-                        request(target);
-                        break;
-                    case "accept":
-                        accept(target);
-                        break;
-                    case "deny":
-                        deny(target);
+                if(!player.equals(target)) {
+                    switch (args[0].toLowerCase()) {
+                        case "request":
+                            request(target);
+                            break;
+                        case "accept":
+                            accept(target);
+                            break;
+                        case "deny":
+                            deny(target);
+                    }
+                } else {
+                    sendMessage(player, MessageType.INFO, "Cannot send a teleport request to yourself.");
                 }
             } else {
                 sendMessage(player, MessageType.INFO, args[1] + " is not online or does not exist");
