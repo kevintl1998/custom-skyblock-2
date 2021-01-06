@@ -1,0 +1,17 @@
+name: CustomSkyblock2
+version: ${project.version}
+main: me.t0c.customskyblock2.CustomSkyblock2
+api-version: 1.15
+load: STARTUP
+commands:
+  CSB:
+    permission: op
+    usage: /<command> [newIsland|set|reload|bonuses|funcItem]
+  newIsland:
+    usage: /<command>
+  bonuses:
+    usage: /<command>
+  wh:
+    usage: /<command> [accept|deny|cancel]
+  joinIsland:
+    usage: /<command> [request|accept|deny|cancel]

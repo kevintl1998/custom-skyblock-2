@@ -1,0 +1,32 @@
+data:
+  WORMHOLE_POTION:
+    enabled: true
+    weight: 1
+  EVENT_BONUS:
+    enabled: true
+    weight: 1
+  MYSTERY_MOB_EGG:
+    enabled: true
+    weight: 1
+  EMPTY_SPAWN_EGG:
+    enabled: true
+    weight: 1
+  BLOCK_DELETER:
+    enabled: true
+    weight: 1
+  ITEM_DUPER:
+    enabled: true
+    weight: 1
+  ITEM_BONUS:
+    enabled: true
+    weight: 1
+  RECALL_POTION:
+    enabled: true
+    weight: 1
+enableExplosiveMobsInSpawnMobEvent: false
+eventBonusAmount: 3
+itemBonusAmount: 3
+normalItemEventEnabled: true
+normalItemEventWeight: 700
+spawnMobEventEnabled: true
+spawnMobEventWeight: 5
