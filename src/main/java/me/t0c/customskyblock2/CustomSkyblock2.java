@@ -43,7 +43,7 @@ public final class CustomSkyblock2 extends JavaPlugin implements Listener {
 
     private final Random random = new Random();
 
-    //TODO: Change these names to represent what the worlds actually do.
+    //Change these names to represent what the worlds actually do.
     private World overworld;
     private World nether;
     private World end;
@@ -53,9 +53,6 @@ public final class CustomSkyblock2 extends JavaPlugin implements Listener {
     private static CustomUtilityManager customUtilityManager;
     private static EventManager eventManager;
     private static BukkitTask eventTaskTimer;
-
-
-    //TODO:: find and fix the event that is creating a null pointer exception
 
     @Override
     public void onEnable() {

@@ -23,6 +23,12 @@ data:
   RECALL_POTION:
     enabled: true
     weight: 1
+  CUSTOM_TRADER_SPAWNER:
+    enabled: true
+    weight: 1
+  SOULBOUND_CATALYST:
+    enabled: true
+    weight: 1
 enableExplosiveMobsInSpawnMobEvent: false
 eventBonusAmount: 3
 itemBonusAmount: 3

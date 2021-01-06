@@ -3,11 +3,11 @@ dupeHostilesOnly: true
 logItemsReceivedInConsole: false
 eventDelay: 800
 newIslandCommandDelay: 36000
-islandDistance: 1024
+islandDistance: 1250
 islandGenHeight: 120
-enableBedSpawn: false
+enableBedSpawn: true
 giveWormholeOnNewSpawn: true
-newIslandItemBonus: 5
+newIslandItemBonus: 10
 newIslandEventBonus: 5
 overworld: 'world'
 nether: 'world_nether'

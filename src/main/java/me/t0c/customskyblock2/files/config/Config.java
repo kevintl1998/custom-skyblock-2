@@ -9,11 +9,11 @@ public class Config {
     private boolean logItemsReceivedInConsole = false;
     private int eventDelay = 1200;
     private long newIslandCommandDelay = 36000;
-    private int islandDistance = 512;
-    private int islandGenHeight = 120;
-    private boolean enableBedSpawn = false;
+    private int islandDistance = 1250;
+    private int islandGenHeight = 100;
+    private boolean enableBedSpawn = true;
     private boolean giveWormholeOnNewSpawn = true;
-    private int newIslandItemBonus = 5;
+    private int newIslandItemBonus = 10;
     private int newIslandEventBonus = 5;
     private NextSpawn nextSpawn = new NextSpawn();
     private String overworld = "world";
