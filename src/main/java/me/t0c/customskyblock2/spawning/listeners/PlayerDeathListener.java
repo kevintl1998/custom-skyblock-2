@@ -16,7 +16,7 @@ public class PlayerDeathListener extends Dong implements Listener {
         Data data = plugin.playerData().getData().get(event.getEntity().getUniqueId().toString());
         data.getStats().playerDied();
         if(data.isKeepItemsOnDeath()) {
-            data.setBonuses(Bonuses.newInstance(Bonuses.CreationReason.PLUGIN));
+            data.setBonuses(Bonuses.newInstance(Bonuses.CreationReason.DEATH));
             event.setKeepInventory(true);
             data.setKeepItemsOnDeath(false);
         }

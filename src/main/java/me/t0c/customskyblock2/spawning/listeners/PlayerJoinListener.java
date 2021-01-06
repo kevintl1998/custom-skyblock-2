@@ -1,6 +1,7 @@
 package me.t0c.customskyblock2.spawning.listeners;
 
 import me.t0c.customskyblock2.Dong;
+import me.t0c.customskyblock2.files.playerdata.Bonuses;
 import me.t0c.customskyblock2.spawning.NewIslandFactory;
 import me.t0c.customskyblock2.files.playerdata.Data;
 import org.bukkit.entity.Player;
@@ -17,7 +18,8 @@ public class PlayerJoinListener extends Dong implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event) {
         if(!event.getPlayer().hasPlayedBefore()) {
             System.out.println("new player joined");
-            plugin.playerData().getData().put(event.getPlayer().getUniqueId().toString(), new Data());
+            Data data = plugin.playerData().getData().put(event.getPlayer().getUniqueId().toString(), new Data());
+            data.setBonuses(Bonuses.newInstance(Bonuses.CreationReason.NEW_ISLAND));
             new NewIslandFactory(event.getPlayer(), false);
             plugin.savePlayerData();
             plugin.saveConfig();

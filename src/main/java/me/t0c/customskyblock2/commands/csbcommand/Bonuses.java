@@ -126,9 +126,9 @@ public class Bonuses extends Command {
 
     private String bonusInfoMessage(Player target) {
         StringBuilder s = new StringBuilder();
-        me.t0c.customskyblock2.files.playerdata.Bonuses bonuses = plugin.playerData().getData().get(player.getUniqueId().toString()).getBonuses();
+        me.t0c.customskyblock2.files.playerdata.Bonuses bonuses = plugin.playerData().getData().get(target.getUniqueId().toString()).getBonuses();
 
-        s.append(player.getName() + "'s");
+        s.append(target.getName() + "'s");
         s.append(" current bonuses");
         s.append('\n');
         s.append(" - Event: ");

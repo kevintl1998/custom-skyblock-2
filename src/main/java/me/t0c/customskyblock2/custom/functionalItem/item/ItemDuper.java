@@ -2,6 +2,7 @@ package me.t0c.customskyblock2.custom.functionalItem.item;
 
 import me.t0c.customskyblock2.CSBClass;
 import me.t0c.customskyblock2.custom.functionalItem.CSBUsableFunctionalItem;
+import me.t0c.customskyblock2.data.Blocks;
 import org.bukkit.Material;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -22,9 +23,14 @@ public class ItemDuper extends CSBClass implements CSBUsableFunctionalItem {
             return false;
         }
         ItemStack item = event.getPlayer().getInventory().getItemInOffHand().clone();
-        item.setAmount(1);
-        event.getPlayer().getWorld().dropItemNaturally(event.getPlayer().getLocation(), item);
-        return true;
+        if(Blocks.shulkerBoxes.contains(item.getType())) {
+            item.setAmount(1);
+            event.getPlayer().getWorld().dropItemNaturally(event.getPlayer().getLocation(), item);
+            return true;
+        } else {
+            sendMessage(event.getPlayer(), MessageType.INFO, "You cannot duplicate that item!");
+            return false;
+        }
     }
 
     @Override
