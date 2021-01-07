@@ -23,17 +23,22 @@ public class JoinIslandCommand extends CSBClass implements CommandExecutor, TabC
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(sender instanceof Player) {
-            Player player = (Player)sender;
-            switch (args[0].toLowerCase()) {
-                case "request":
-                case "accept":
-                case "deny":
-                case "cancel":
-                    return new JoinIsland(player, args).runCommand();
-                default:
-                    sendMessage(player,MessageType.INFO, "Command syntax: /joinIsland [request|accept|deny|cancel]");
+            if(args.length > 1) {
+                Player player = (Player) sender;
+                switch (args[0].toLowerCase()) {
+                    case "request":
+                    case "accept":
+                    case "deny":
+                    case "cancel":
+                        return new JoinIsland(player, args).runCommand();
+                    default:
+                        sendMessage(player, MessageType.INFO, "Command syntax: /joinIsland [request|accept|deny|cancel]");
+                }
+                return true;
+            } else {
+                sendMessage((Player)sender, MessageType.INFO, "Command syntax: /joinIsland [request|accept|deny|cancel]");
+                return true;
             }
-            return true;
         } else {
             sender.sendMessage("Only players can use this command");
             return false;

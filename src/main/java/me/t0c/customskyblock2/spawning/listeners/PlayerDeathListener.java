@@ -18,6 +18,7 @@ public class PlayerDeathListener extends Dong implements Listener {
         if(data.isKeepItemsOnDeath()) {
             data.setBonuses(Bonuses.newInstance(Bonuses.CreationReason.DEATH));
             event.setKeepInventory(true);
+            event.getDrops().clear();
             data.setKeepItemsOnDeath(false);
         }
     }

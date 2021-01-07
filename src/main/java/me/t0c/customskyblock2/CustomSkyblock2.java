@@ -55,6 +55,12 @@ public final class CustomSkyblock2 extends JavaPlugin implements Listener {
     private static EventManager eventManager;
     private static BukkitTask eventTaskTimer;
 
+    /*
+     * bedrock and barriers
+     * dragon eggs for command blocks
+     */
+
+
     @Override
     public void onEnable() {
 
