@@ -323,7 +323,8 @@ public class Items extends Dong {
     }
 
     private static List<Material> initIllegalItems() {
-        return Collections.singletonList(Material.DEBUG_STICK);
+        return Arrays.asList(Material.DEBUG_STICK,
+                Material.ELYTRA);
     }
 
 }

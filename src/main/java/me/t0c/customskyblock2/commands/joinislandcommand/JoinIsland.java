@@ -47,6 +47,8 @@ public class JoinIsland extends Command implements Listener {
         } else if(args.length == 1) {
             if(args[0].toLowerCase().equals("cancel")) {
                 cancel();
+            } else {
+                sendMessage(player, MessageType.INFO, "Command syntax: /joinIsland [request|accept|deny|cancel] <player>");
             }
         } else {
             sendMessage(player, MessageType.INFO, "Command syntax: /joinIsland [request|accept|deny|cancel] <player>");

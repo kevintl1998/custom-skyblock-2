@@ -21,6 +21,7 @@ import me.t0c.customskyblock2.eventdistributer.EventManager;
 import me.t0c.customskyblock2.spawning.listeners.PlayerDeathListener;
 import me.t0c.customskyblock2.spawning.listeners.PlayerJoinListener;
 import me.t0c.customskyblock2.spawning.listeners.PlayerRespawnListener;
+import me.t0c.customskyblock2.spawning.listeners.PlayerUseElytra;
 import me.t0c.customskyblock2.worldGen.VoidWorldGenerator;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
@@ -116,6 +117,7 @@ public final class CustomSkyblock2 extends JavaPlugin implements Listener {
         new PlayerJoinListener();
         new PlayerRespawnListener();
         new WormholeListener();
+        new PlayerUseElytra();
     }
 
     /* CUSTOM EVENT STUFF */

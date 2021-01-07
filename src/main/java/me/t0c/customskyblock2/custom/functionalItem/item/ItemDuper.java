@@ -1,5 +1,6 @@
 package me.t0c.customskyblock2.custom.functionalItem.item;
 
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import me.t0c.customskyblock2.CSBClass;
 import me.t0c.customskyblock2.custom.functionalItem.CSBUsableFunctionalItem;
 import me.t0c.customskyblock2.data.Blocks;
@@ -23,7 +24,9 @@ public class ItemDuper extends CSBClass implements CSBUsableFunctionalItem {
             return false;
         }
         ItemStack item = event.getPlayer().getInventory().getItemInOffHand().clone();
-        if(Blocks.shulkerBoxes.contains(item.getType())) {
+        System.out.println(item.getType());
+        System.out.println();
+        if(!Blocks.shulkerBoxes.contains(item.getType())) {
             item.setAmount(1);
             event.getPlayer().getWorld().dropItemNaturally(event.getPlayer().getLocation(), item);
             return true;
