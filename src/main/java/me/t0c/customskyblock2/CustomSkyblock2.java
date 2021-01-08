@@ -22,11 +22,15 @@ import me.t0c.customskyblock2.spawning.listeners.PlayerDeathListener;
 import me.t0c.customskyblock2.spawning.listeners.PlayerJoinListener;
 import me.t0c.customskyblock2.spawning.listeners.PlayerRespawnListener;
 import me.t0c.customskyblock2.spawning.listeners.PlayerUseElytra;
+import me.t0c.customskyblock2.worldGen.VoidNetherGenerator;
 import me.t0c.customskyblock2.worldGen.VoidWorldGenerator;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
+import org.bukkit.WorldCreator;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.CraftItemEvent;
+import org.bukkit.event.inventory.PrepareItemCraftEvent;
 import org.bukkit.event.server.ServerLoadEvent;
 import org.bukkit.generator.ChunkGenerator;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -56,8 +60,11 @@ public final class CustomSkyblock2 extends JavaPlugin implements Listener {
     private static BukkitTask eventTaskTimer;
 
     /*
-     * bedrock and barriers
-     * dragon eggs for command blocks
+     * bedrock and barriers for dragon eggs
+     * netherite for dragon egg
+     * let you go to the nether but to come back need to use a command
+     * remove useless items from give random item event
+     * test what happens when you go back to the overworld from the end without a bed spawn
      */
 
 
@@ -116,7 +123,7 @@ public final class CustomSkyblock2 extends JavaPlugin implements Listener {
 
     private void initBukkitListeners() {
         Bukkit.getPluginManager().registerEvents(this,this);
-        new DisableNetherPortals();
+        new DisablePortalsInNether();
         new DupeMobSpawns();
         new EntityBreedRandomizer();
         new PlayerDeathListener();
