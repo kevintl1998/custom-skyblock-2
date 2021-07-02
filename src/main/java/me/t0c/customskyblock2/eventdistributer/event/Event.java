@@ -9,4 +9,5 @@ public abstract class Event extends CSBClass {
     public abstract void run(Player player);
     public abstract String name();
 
+
 }

@@ -65,6 +65,12 @@ public final class CustomSkyblock2 extends JavaPlugin implements Listener {
      * let you go to the nether but to come back need to use a command
      * remove useless items from give random item event
      * test what happens when you go back to the overworld from the end without a bed spawn
+     *
+     * option to make the items given based on the biome that you are in
+     * option to make items from caves(coal, diamond, etc.) be given only when below a certain height
+     *
+     * redo events so they act like Bukkit events
+     *
      */
 
 
