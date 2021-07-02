@@ -51,6 +51,7 @@ public class Blocks {
     }
 
     /* Initializers */
+
     private static List<Material> initBlocks() {
         List<Material> mList = new ArrayList<>();
         for(Material m : Material.values()) {
@@ -80,7 +81,8 @@ public class Blocks {
                 Material.YELLOW_SHULKER_BOX,
                 Material.GILDED_BLACKSTONE,
                 Material.DRAGON_EGG,
-                Material.ELYTRA);
+                Material.POINTED_DRIPSTONE,
+                Material.BUDDING_AMETHYST);
     }
     private static List<Material> initUnbreakableBlocks() {
         return Arrays.asList(

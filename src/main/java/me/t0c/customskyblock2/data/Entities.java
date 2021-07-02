@@ -19,6 +19,28 @@ public class Entities {
     public static final List<EntityType> hostileEntities = initHostileEntities();
     public static final List<EntityType> explosiveMobs = initExplosiveMobs();
 
+    public static EntityType getRandomLivingEntity() {
+        EntityType e = livingEntities.get(new Random().nextInt(livingEntities.size()));
+        if(illegalEntities.contains(e)) return getRandomLivingEntity();
+        else return e;
+    }
+    public static EntityType getRandomHostileEntity() { return hostileEntities.get(CustomSkyblock2.instance().random().nextInt(hostileEntities.size())); }
+
+    public static Player getRandomPlayerExcluding(Player player) {
+        if(Bukkit.getServer().getOnlinePlayers().size() < 2) return null;
+        Player p = getRandomPlayer();
+        if(p.equals(player)) {
+            return getRandomPlayerExcluding(player);
+        }
+        return p;
+    }
+    public static Player getRandomPlayer() {
+        ArrayList<Player> p = new ArrayList<>(Bukkit.getOnlinePlayers());
+        if(p.size() == 0) return null;
+        else if(p.size() == 1) return p.get(0);
+        else return p.get(new Random().nextInt(p.size()));
+    }
+
     public static List<EntityType> initIllegalEntities() {
         return Arrays.asList(
                 EntityType.ENDER_DRAGON,
@@ -67,27 +89,5 @@ public class Entities {
     public static List<EntityType> initExplosiveMobs() {
         return Arrays.asList(EntityType.CREEPER,
                 EntityType.GHAST);
-    }
-
-    public static EntityType getRandomLivingEntity() {
-        EntityType e = livingEntities.get(new Random().nextInt(livingEntities.size()));
-        if(illegalEntities.contains(e)) return getRandomLivingEntity();
-        else return e;
-    }
-    public static EntityType getRandomHostileEntity() { return hostileEntities.get(CustomSkyblock2.instance().random().nextInt(hostileEntities.size())); }
-
-    public static Player getRandomPlayerExcluding(Player player) {
-        if(Bukkit.getServer().getOnlinePlayers().size() < 2) return null;
-        Player p = getRandomPlayer();
-        if(p.equals(player)) {
-            return getRandomPlayerExcluding(player);
-        }
-        return p;
-    }
-    public static Player getRandomPlayer() {
-        ArrayList<Player> p = new ArrayList<Player>(Bukkit.getOnlinePlayers());
-        if(p.size() == 0) return null;
-        else if(p.size() == 1) return p.get(0);
-        else return p.get(new Random().nextInt(p.size()));
     }
 }

@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class Items extends Dong {
+public class Items {
 
     public static List<Material> rareItems = initRareItems();
     public static List<Material> mobDrops = initMobDrops();
@@ -29,7 +29,7 @@ public class Items extends Dong {
     }
 
     private static List<Material> initRareItems() {
-        return Arrays.asList(Material.ENDER_CHEST,
+        List<Material> l = Arrays.asList(Material.ENDER_CHEST,
                 Material.SHULKER_BOX,
                 Material.BLACK_SHULKER_BOX,
                 Material.BLUE_SHULKER_BOX,
@@ -53,68 +53,6 @@ public class Items extends Dong {
                 Material.BARRIER,
                 Material.JIGSAW,
                 Material.STRUCTURE_BLOCK,
-                Material.BAT_SPAWN_EGG,
-                Material.CAT_SPAWN_EGG,
-                Material.CHICKEN_SPAWN_EGG,
-                Material.COD_SPAWN_EGG,
-                Material.COW_SPAWN_EGG,
-                Material.DONKEY_SPAWN_EGG,
-                Material.FOX_SPAWN_EGG,
-                Material.HORSE_SPAWN_EGG,
-                Material.MOOSHROOM_SPAWN_EGG,
-                Material.MULE_SPAWN_EGG,
-                Material.OCELOT_SPAWN_EGG,
-                Material.PARROT_SPAWN_EGG,
-                Material.PIG_SPAWN_EGG,
-                Material.PUFFERFISH_SPAWN_EGG,
-                Material.RABBIT_SPAWN_EGG,
-                Material.SALMON_SPAWN_EGG,
-                Material.SHEEP_SPAWN_EGG,
-                Material.SKELETON_HORSE_SPAWN_EGG,
-                Material.SQUID_SPAWN_EGG,
-                Material.STRIDER_SPAWN_EGG,
-                Material.TROPICAL_FISH_SPAWN_EGG,
-                Material.TURTLE_SPAWN_EGG,
-                Material.VILLAGER_SPAWN_EGG,
-                Material.WANDERING_TRADER_SPAWN_EGG,
-                Material.BEE_SPAWN_EGG,
-                Material.DOLPHIN_SPAWN_EGG,
-                Material.LLAMA_SPAWN_EGG,
-                Material.TRADER_LLAMA_SPAWN_EGG,
-                Material.PANDA_SPAWN_EGG,
-                Material.POLAR_BEAR_SPAWN_EGG,
-                Material.WOLF_SPAWN_EGG,
-                Material.CAVE_SPIDER_SPAWN_EGG,
-                Material.ENDERMAN_SPAWN_EGG,
-                Material.PIGLIN_SPAWN_EGG,
-                Material.SPIDER_SPAWN_EGG,
-                Material.ZOMBIFIED_PIGLIN_SPAWN_EGG,
-                Material.BLAZE_SPAWN_EGG,
-                Material.CREEPER_SPAWN_EGG,
-                Material.DROWNED_SPAWN_EGG,
-                Material.ELDER_GUARDIAN_SPAWN_EGG,
-                Material.ENDERMITE_SPAWN_EGG,
-                Material.EVOKER_SPAWN_EGG,
-                Material.GHAST_SPAWN_EGG,
-                Material.GUARDIAN_SPAWN_EGG,
-                Material.HUSK_SPAWN_EGG,
-                Material.HOGLIN_SPAWN_EGG,
-                Material.MAGMA_CUBE_SPAWN_EGG,
-                Material.PHANTOM_SPAWN_EGG,
-                Material.PILLAGER_SPAWN_EGG,
-                Material.RAVAGER_SPAWN_EGG,
-                Material.SHULKER_SPAWN_EGG,
-                Material.SILVERFISH_SPAWN_EGG,
-                Material.SKELETON_SPAWN_EGG,
-                Material.SLIME_SPAWN_EGG,
-                Material.STRAY_SPAWN_EGG,
-                Material.VEX_SPAWN_EGG,
-                Material.VINDICATOR_SPAWN_EGG,
-                Material.WITCH_SPAWN_EGG,
-                Material.WITHER_SKELETON_SPAWN_EGG,
-                Material.ZOGLIN_SPAWN_EGG,
-                Material.ZOMBIE_SPAWN_EGG,
-                Material.ZOMBIE_VILLAGER_SPAWN_EGG,
                 Material.GILDED_BLACKSTONE,
                 Material.NETHERITE_INGOT,
                 Material.NETHERITE_BLOCK,
@@ -128,8 +66,11 @@ public class Items extends Dong {
                 Material.NETHERITE_PICKAXE,
                 Material.NETHERITE_HOE,
                 Material.NETHERITE_SHOVEL,
-                Material.ELYTRA,
-                Material.NETHER_STAR);
+                Material.NETHER_STAR,
+                Material.POINTED_DRIPSTONE,
+                Material.BUDDING_AMETHYST);
+        l.addAll(initSpawnEggs());
+        return l;
     }
     private static List<Material> initMobDrops() {
         return Arrays.asList(Material.BLAZE_ROD,
@@ -258,6 +199,7 @@ public class Items extends Dong {
                 Material.SMOOTH_QUARTZ_SLAB);
     }
     private static List<Material> initSpawnEggs() {
+        // Spawn eggs and buckets of fish
         return Arrays.asList(Material.BAT_SPAWN_EGG,
                 Material.CAT_SPAWN_EGG,
                 Material.CHICKEN_SPAWN_EGG,
@@ -319,9 +261,15 @@ public class Items extends Dong {
                 Material.WITHER_SKELETON_SPAWN_EGG,
                 Material.ZOGLIN_SPAWN_EGG,
                 Material.ZOMBIE_SPAWN_EGG,
-                Material.ZOMBIE_VILLAGER_SPAWN_EGG);
+                Material.ZOMBIE_VILLAGER_SPAWN_EGG,
+                Material.GOAT_SPAWN_EGG,
+                Material.AXOLOTL_SPAWN_EGG,
+                Material.AXOLOTL_BUCKET,
+                Material.COD_BUCKET,
+                Material.PUFFERFISH_BUCKET,
+                Material.SALMON_BUCKET,
+                Material.TROPICAL_FISH_BUCKET);
     }
-
     private static List<Material> initIllegalItems() {
         return Arrays.asList(Material.DEBUG_STICK,
                 Material.ELYTRA);

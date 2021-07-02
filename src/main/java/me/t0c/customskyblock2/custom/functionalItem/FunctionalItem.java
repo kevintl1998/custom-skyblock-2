@@ -25,9 +25,9 @@ public enum FunctionalItem implements BaseCustomType {
 
     SOULBOUND_CATALYST(new SoulboundCatalyst(), ItemType.USABLE),
 
-    CUSTOM_TRADER_SPAWNER(new CustomTraderSpawner(), ItemType.USABLE),
+//    CUSTOM_TRADER_SPAWNER(new CustomTraderSpawner(), ItemType.USABLE),
 
-    //PLAYER_REMOVER(new PlayerRemover(), ItemType.USABLE),
+//    PLAYER_REMOVER(new PlayerRemover(), ItemType.USABLE),
 
     ITEM_BONUS(new ItemBonus(), ItemType.CONSUMABLE),
 
@@ -48,9 +48,9 @@ public enum FunctionalItem implements BaseCustomType {
             meta.addEnchant(Enchantment.ARROW_INFINITE, 1, true);
             meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }
-        for(String s : itemData.getDescription()) {
-            s = ChatColor.DARK_PURPLE + s;
-        }
+//        for(String s : itemData.getDescription()) {
+//            s = ChatColor.DARK_PURPLE + s;
+//        }
 
         meta.setLore(itemData.getDescription());
         item.setItemMeta(meta);
