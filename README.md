@@ -1,2 +1,3 @@
 # custom-skyblock
- plugin for minecraft :3
+ Custom Skyblock plugin for minecraft.
+ 
