@@ -28,7 +28,7 @@ public class CustomTraderSpawner extends CSBClass implements CSBUsableFunctional
     @Override
     public List<String> getDescription() {
         return Arrays.asList("Use to summon a wandering trader that",
-                            "sells body pillows or custom items");
+                            "sells custom items");
     }
 
     @Override
