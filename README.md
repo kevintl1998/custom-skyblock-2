@@ -1,3 +1,3 @@
 # custom-skyblock
- Custom Skyblock plugin for minecraft.
+ Custom Skyblock plugin for minecraft v1.17
  
